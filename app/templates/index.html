@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pontuação</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col m12 s2">
+                <h4>Tabela de Pontuação</h4>
+                <p class="">Registros de pontuações</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col m12 s12">
+                <table class="striped responsive-table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Data</th>
+                        <th>Pontos</th>
+                        <th>Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        {% for score in Score.query.all() %}
+                            <tr>
+                                <td>{{score.user_id}}</td>
+                                <td>{{score.user_name}}</td>
+                                <td>{{score.data_score}}</td>
+                                <td>{{score.score}}</td>
+                                <td>{{score.total_score}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+</body>
+</html>
